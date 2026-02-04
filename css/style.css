@@ -429,3 +429,88 @@ body{
   .claro-mark{width:min(240px, 80vw)}
   .halo{top:112px}
 }
+
+
+/* =========================
+   MOBILE COMPACT (sube CTAs)
+   ========================= */
+@media (max-width: 420px){
+
+  /* menos padding general */
+  .wrap{
+    padding: 14px 12px 86px;
+    align-items: flex-start; /* empuja todo más arriba */
+  }
+
+  .top{
+    padding: 14px 16px 10px; /* antes era 26px... */
+  }
+
+  /* Logo Claro más compacto */
+  .claro-mark{
+    width: min(220px, 76vw);
+    margin: 0 auto 6px;
+  }
+
+  /* Halo más chico y más arriba */
+  .halo{
+    top: 72px;     /* antes 120px */
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Foto perfil más chica y más pegada */
+  .logo{
+    width: 106px;
+    height: 106px;
+    margin: 0 auto 6px;
+  }
+
+  .name{
+    margin: 6px 0 2px;
+    font-size: 20px;
+  }
+
+  .role{
+    font-size: 12.5px;
+  }
+
+  /* Chips más compactos */
+  .mini-chips{
+    margin-top: 8px;
+    gap: 6px;
+  }
+
+  .chip{
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+
+  /* Menos aire entre header y botones */
+  .divider{
+    margin: 8px 14px 0;
+  }
+
+  .actions{
+    padding: 12px 14px 14px;
+    gap: 10px;
+  }
+
+  /* Botones un poco más bajitos */
+  .btn{
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .icon{
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .go{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+  }
+}
