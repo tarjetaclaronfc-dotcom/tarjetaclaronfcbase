@@ -1,6 +1,29 @@
 // js/app.js
-
 const $ = (id) => document.getElementById(id);
+
+function safeSetText(id, value) {
+  const el = $(id);
+  if (!el) return console.warn(`Falta en HTML el id #${id}`);
+  el.textContent = value;
+}
+
+function safeSetHref(id, value) {
+  const el = $(id);
+  if (!el) return console.warn(`Falta en HTML el id #${id}`);
+  el.href = value;
+}
+
+function safeShow(id, show) {
+  const el = $(id);
+  if (!el) return console.warn(`Falta en HTML el id #${id}`);
+  el.style.display = show ? "" : "none";
+}
+
+function safeSetSrc(id, value) {
+  const el = $(id);
+  if (!el) return console.warn(`Falta en HTML el id #${id}`);
+  el.src = value;
+}
 
 function getQueryParam(name) {
   const url = new URL(window.location.href);
@@ -13,69 +36,81 @@ function buildWaLink(phone, msg) {
 }
 
 async function loadProfile() {
-  // Si no viene id, dejamos uno por defecto para poder probar
   const profileId = getQueryParam("id") || "ID001";
 
   const res = await fetch("data/data.json", { cache: "no-store" });
-  const data = await res.json();
+  if (!res.ok) throw new Error(`No se pudo abrir data/data.json (HTTP ${res.status})`);
 
+  const data = await res.json();
   const p = data[profileId];
 
   if (!p) {
-    $("profileName").textContent = "Perfil no encontrado";
-    $("profileRole").textContent = "Verificá el link recibido";
-    $("btnWhatsapp").style.display = "none";
-    $("btnInstagram").style.display = "none";
-    $("btnWeb").style.display = "none";
-    $("btnEmail").style.display = "none";
-    $("floatBot").style.display = "none";
+    safeSetText("profileName", "Perfil no encontrado");
+    safeSetText("profileRole", `No existe el id: ${profileId}`);
+    safeShow("btnWhatsapp", false);
+    safeShow("btnInstagram", false);
+    safeShow("btnWeb", false);
+    safeShow("btnEmail", false);
+    safeShow("floatBot", false);
     return;
   }
 
-  // Foto (si no te mandan foto, podés dejar una por defecto)
-  if (p.foto) $("profilePhoto").src = p.foto;
+  // Foto
+  if (p.foto) safeSetSrc("profilePhoto", p.foto);
 
   // Nombre y rol
-  $("profileName").textContent = p.nombre || "Sin nombre";
-  $("profileRole").textContent = p.rol
-    ? `${p.rol} · Tarjeta Digital + NFC`
-    : "Tarjeta Digital + NFC";
+  safeSetText("profileName", p.nombre || "Sin nombre");
+  safeSetText(
+    "profileRole",
+    p.rol ? `${p.rol} · Tarjeta Digital + NFC` : "Tarjeta Digital + NFC"
+  );
 
-  // WhatsApp (botón grande + bot flotante)
+  // WhatsApp
   if (p.whatsapp) {
     const waLink = buildWaLink(p.whatsapp, p.mensaje);
-    $("btnWhatsapp").href = waLink;
-    $("floatBot").href = waLink;
-    $("whatsappSubtitle").textContent = p.whatsapp_subtitulo || "Escribime al instante";
+    safeSetHref("btnWhatsapp", waLink);
+    safeSetHref("floatBot", waLink);
+    safeSetText("whatsappSubtitle", p.whatsapp_subtitulo || "Escribime al instante");
+    safeShow("btnWhatsapp", true);
+    safeShow("floatBot", true);
   } else {
-    $("btnWhatsapp").style.display = "none";
-    $("floatBot").style.display = "none";
+    safeShow("btnWhatsapp", false);
+    safeShow("floatBot", false);
   }
 
   // Instagram
-  if (p.instagram) $("btnInstagram").href = p.instagram;
-  else $("btnInstagram").style.display = "none";
-
-  // Web
-  if (p.web) $("btnWeb").href = p.web;
-  else $("btnWeb").style.display = "none";
-
-  // Email
-  if (p.email) {
-    const subject = encodeURIComponent("Contacto desde Tarjeta Digital + NFC");
-    const body = encodeURIComponent("Hola! Te contacto desde tu Tarjeta Digital + NFC.");
-    $("btnEmail").href = `mailto:${p.email}?subject=${subject}&body=${body}`;
-    $("emailSubtitle").textContent = p.email;
+  if (p.instagram && p.instagram.trim()) {
+    safeSetHref("btnInstagram", p.instagram);
+    safeShow("btnInstagram", true);
   } else {
-    $("btnEmail").style.display = "none";
+    safeShow("btnInstagram", false);
   }
 
-  // (Opcional) cambiar imagen del bot por persona/perfil
-  // p.botImg = "img/bots/bot1.png"
-  if (p.botImg) $("botImg").src = p.botImg;
+  // Web
+  if (p.web && p.web.trim()) {
+    safeSetHref("btnWeb", p.web);
+    safeShow("btnWeb", true);
+  } else {
+    safeShow("btnWeb", false);
+  }
+
+  // Email
+  if (p.email && p.email.trim()) {
+    const subject = encodeURIComponent("Contacto desde Tarjeta Digital + NFC");
+    const body = encodeURIComponent("Hola! Te contacto desde tu Tarjeta Digital + NFC.");
+    safeSetHref("btnEmail", `mailto:${p.email}?subject=${subject}&body=${body}`);
+    safeSetText("emailSubtitle", p.email);
+    safeShow("btnEmail", true);
+  } else {
+    safeShow("btnEmail", false);
+  }
+
+  // Bot image opcional
+  if (p.botImg) safeSetSrc("botImg", p.botImg);
 }
 
-loadProfile().catch(() => {
-  $("profileName").textContent = "Error cargando datos";
-  $("profileRole").textContent = "Revisá data/data.json y rutas";
+loadProfile().catch((err) => {
+  console.error("Fallo loadProfile:", err);
+  safeSetText("profileName", "Error cargando datos");
+  safeSetText("profileRole", err.message || "Revisá data/data.json y rutas");
 });
