@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>vCard · Claro Style</title>
-
+  <title>Tarjeta Digital + NFC · Claro Style</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- Fondo decorativo -->
-  <div class="bg">
+  <div class="bg" aria-hidden="true">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
@@ -18,20 +17,20 @@
   </div>
 
   <main class="wrap" aria-label="Tarjeta digital">
-    <section class="card" role="region" aria-label="vCard estilo Claro">
+    <section class="card" role="region" aria-label="Tarjeta digital estilo Claro">
 
       <header class="top">
         <!-- Halo animado -->
         <div class="halo" aria-hidden="true"></div>
 
-        <!-- LOGO (placeholder) -->
+        <!-- LOGO (imagen real) -->
         <div class="logo" aria-label="Logo central">
-            <img
-                src="img/logo3.png"
-                alt="Logo de la empresa"
-                class="logo-img"
-            />
-            </div>
+          <img
+            src="img/logo3.png"
+            alt="Logo de la empresa"
+            class="logo-img"
+          />
+        </div>
 
         <h1 class="name">Nombre Apellido</h1>
         <p class="role">Tarjeta digital · NFC · QR</p>
@@ -47,10 +46,10 @@
 
       <section class="actions" aria-label="Accesos directos">
         <!-- WhatsApp -->
-        <a class="btn glass" href="https://wa.me/5493810000000?text=Hola%20vengo%20desde%20tu%20tarjeta%20digital%20👋"
+        <a class="btn glass"
+           href="https://wa.me/5493810000000?text=Hola%20vengo%20desde%20tu%20tarjeta%20digital%20👋"
            target="_blank" rel="noopener">
           <span class="icon" aria-hidden="true">
-            <!-- Icono WA (SVG) -->
             <svg viewBox="0 0 24 24">
               <path d="M12 2a9.8 9.8 0 0 0-8.35 15.02L3 22l5.08-1.6A9.9 9.9 0 1 0 12 2z"
                     fill="currentColor" opacity=".18"></path>
@@ -66,10 +65,10 @@
         </a>
 
         <!-- Instagram -->
-        <a class="btn glass" href="https://instagram.com/tu_usuario"
+        <a class="btn glass"
+           href="https://instagram.com/tu_usuario"
            target="_blank" rel="noopener">
           <span class="icon" aria-hidden="true">
-            <!-- Icono IG (SVG) -->
             <svg viewBox="0 0 24 24">
               <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"
                     fill="currentColor" opacity=".18"></path>
@@ -86,10 +85,10 @@
         </a>
 
         <!-- Web -->
-        <a class="btn glass" href="https://tuweb.com"
+        <a class="btn glass"
+           href="https://tuweb.com"
            target="_blank" rel="noopener">
           <span class="icon" aria-hidden="true">
-            <!-- Icono Web (SVG) -->
             <svg viewBox="0 0 24 24">
               <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"
                     fill="currentColor" opacity=".18"></path>
@@ -114,22 +113,19 @@
     </section>
   </main>
 
-
   <!-- AVATAR FLOTANTE → WhatsApp -->
-<a
-  class="avatar-float"
-  href="https://wa.me/5493813159106?text=Hola%20vengo%20desde%20tu%20tarjeta%20digital%20NFC%20👋"
-  target="_blank"
-  rel="noopener"
-  aria-label="Chatear por WhatsApp"
->
-  <div class="avatar-bubble" aria-hidden="true">
-    <img class="avatar-img" src="img/avatar.jpg" alt="Asistente">
-  </div>
-  <span class="avatar-tag">WhatsApp</span>
-</a>
-
-
+  <a
+    class="avatar-float"
+    href="https://wa.me/5493813159106?text=Hola%20vengo%20desde%20tu%20tarjeta%20digital%20NFC%20👋"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chatear por WhatsApp"
+  >
+    <div class="avatar-bubble" aria-hidden="true">
+      <img class="avatar-img" src="img/avatar.jpg" alt="Asistente">
+    </div>
+    <span class="avatar-tag">WhatsApp</span>
+  </a>
 
 </body>
 </html>
