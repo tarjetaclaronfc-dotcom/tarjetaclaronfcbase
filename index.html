@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vCard · Claro Style</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Fondo decorativo -->
+  <div class="bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid"></div>
+  </div>
+
+  <main class="wrap" aria-label="Tarjeta digital">
+    <section class="card" role="region" aria-label="vCard estilo Claro">
+
+      <header class="top">
+        <!-- Halo animado -->
+        <div class="halo" aria-hidden="true"></div>
+
+        <!-- LOGO (placeholder) -->
+        <div class="logo" aria-label="Logo central">
+          <!-- Podés reemplazar este SVG por tu imagen (logo.png) -->
+          <svg class="logo-svg" viewBox="0 0 240 240" aria-hidden="true">
+            <defs>
+              <linearGradient id="gRed" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff1b2d"/>
+                <stop offset="1" stop-color="#b80016"/>
+              </linearGradient>
+              <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="6" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <circle cx="120" cy="120" r="92" fill="url(#gRed)" filter="url(#softGlow)"/>
+            <circle cx="120" cy="120" r="72" fill="rgba(255,255,255,0.12)"/>
+            <path d="M78 130c10 20 30 34 54 34 26 0 48-16 57-39"
+                  fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="12" stroke-linecap="round"/>
+            <circle cx="165" cy="98" r="8" fill="rgba(255,255,255,0.9)"/>
+            <text x="120" y="118" text-anchor="middle" font-size="20" fill="#fff"
+                  font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial">CLARO</text>
+          </svg>
+        </div>
+
+        <h1 class="name">Nombre Apellido</h1>
+        <p class="role">Tarjeta digital · NFC · QR</p>
+
+        <div class="mini-chips" aria-label="Características">
+          <span class="chip">Respuesta rápida</span>
+          <span class="chip">Diseño premium</span>
+          <span class="chip">Contacto 1 toque</span>
+        </div>
+      </header>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <section class="actions" aria-label="Accesos directos">
+        <!-- WhatsApp -->
+        <a class="btn glass" href="https://wa.me/5493810000000?text=Hola%20vengo%20desde%20tu%20tarjeta%20digital%20👋"
+           target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">
+            <!-- Icono WA (SVG) -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2a9.8 9.8 0 0 0-8.35 15.02L3 22l5.08-1.6A9.9 9.9 0 1 0 12 2z"
+                    fill="currentColor" opacity=".18"></path>
+              <path d="M9.2 7.7c.2-.5.4-.5.6-.5h.5c.1 0 .3 0 .4.3.1.2.6 1.4.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.3.4-.1.1-.3.3-.1.6.2.3.8 1.2 1.7 1.9.9.7 1.7 1 2 .8.3-.2.6-.7.8-1 .2-.3.3-.3.5-.2.2.1 1.4.7 1.6.8.2.1.3.2.3.3 0 .1 0 .6-.3 1.1-.3.5-1.1 1-1.6 1.1-.5.1-1 .2-2.3-.3-1.4-.6-2.6-1.7-3.5-2.7-.9-1.1-1.5-2.4-1.6-2.8-.1-.4-.1-.8 0-1.1.1-.3.3-.6.4-.7z"
+                    fill="currentColor"></path>
+            </svg>
+          </span>
+          <div class="txt">
+            <strong>WhatsApp</strong>
+            <span>Escribime al instante</span>
+          </div>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+
+        <!-- Instagram -->
+        <a class="btn glass" href="https://instagram.com/tu_usuario"
+           target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">
+            <!-- Icono IG (SVG) -->
+            <svg viewBox="0 0 24 24">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"
+                    fill="currentColor" opacity=".18"></path>
+              <path d="M12 8.2A3.8 3.8 0 1 0 12 16a3.8 3.8 0 0 0 0-7.8zm0 6.2A2.4 2.4 0 1 1 12 9.6a2.4 2.4 0 0 1 0 4.8z"
+                    fill="currentColor"></path>
+              <circle cx="17.6" cy="6.4" r="1" fill="currentColor"></circle>
+            </svg>
+          </span>
+          <div class="txt">
+            <strong>Instagram</strong>
+            <span>Ver contenido y novedades</span>
+          </div>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+
+        <!-- Web -->
+        <a class="btn glass" href="https://tuweb.com"
+           target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">
+            <!-- Icono Web (SVG) -->
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"
+                    fill="currentColor" opacity=".18"></path>
+              <path d="M4.5 12h15M12 4.5c2.5 2.7 2.5 12.3 0 15M12 4.5c-2.5 2.7-2.5 12.3 0 15"
+                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            </svg>
+          </span>
+          <div class="txt">
+            <strong>Mi Web</strong>
+            <span>Portfolio / servicios</span>
+          </div>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
+      </section>
+
+      <footer class="foot">
+        <p class="note">
+          Hecho con estilo <span class="brand">Claro</span> · Glass · Animaciones suaves
+        </p>
+      </footer>
+
+    </section>
+  </main>
+
+  <!-- AVATAR FLOTANTE (por ahora llama al celular; luego cambiamos a chatbot) -->
+  <a class="avatar-float" href="tel:+543810000000" aria-label="Llamar ahora">
+    <div class="avatar-bubble" aria-hidden="true">
+      <div class="eyes">
+        <span></span><span></span>
+      </div>
+      <div class="mouth"></div>
+      <div class="spark s1"></div>
+      <div class="spark s2"></div>
+      <div class="spark s3"></div>
+    </div>
+    <span class="avatar-tag">Llamame</span>
+  </a>
+
+</body>
+</html>
