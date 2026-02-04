@@ -1,0 +1,22 @@
+{
+  "ID001": {
+    "nombre": "ESTEBAN LOPEZ",
+    "rol": "Vendedor de calle",
+    "whatsapp": "5493813159106",
+    "mensaje": "Hola Juan! Vengo desde tu Tarjeta Digital + NFC 👋",
+    "email": "juan.perez@empresa.com",
+    "instagram": "https://instagram.com/juanperez",
+    "web": "https://empresa.com",
+    "foto": "img/perfiles/ID001.jpg"
+  },
+  "ID002": {
+    "nombre": "JORGE ZERDA",
+    "rol": "Instaladora",
+    "whatsapp": "5493814001122",
+    "mensaje": "Hola María! Te escribo desde tu Tarjeta Digital + NFC 👋",
+    "email": "maria.gomez@empresa.com",
+    "instagram": "",
+    "web": "https://empresa.com/instalaciones",
+    "foto": "img/perfiles/ID002.jpg"
+  }
+}

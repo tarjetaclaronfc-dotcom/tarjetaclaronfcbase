@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tarjeta Digital + NFC · Claro Style</title>
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -23,17 +24,18 @@
         <!-- Halo animado -->
         <div class="halo" aria-hidden="true"></div>
 
-        <!-- LOGO (imagen real) -->
-        <div class="logo" aria-label="Logo central">
+        <!-- FOTO / LOGO CENTRAL (se reemplaza por perfil) -->
+        <div class="logo" aria-label="Foto de perfil">
           <img
-            src="img/logo3.png"
-            alt="Logo de la empresa"
+            src="img/perfiles/ID001.jpg"
+            alt="Foto de perfil"
             class="logo-img"
+            id="profilePhoto"
           />
         </div>
 
-        <h1 class="name">Nombre Apellido</h1>
-        <p class="role">Tarjeta digital · NFC · QR</p>
+        <h1 class="name" id="profileName">Nombre Apellido</h1>
+        <p class="role" id="profileRole">Tarjeta Digital + NFC · NFC · QR</p>
 
         <div class="mini-chips" aria-label="Características">
           <span class="chip">Respuesta rápida</span>
@@ -46,9 +48,7 @@
 
       <section class="actions" aria-label="Accesos directos">
         <!-- WhatsApp -->
-        <a class="btn glass"
-           href="https://wa.me/5493810000000?text=Hola%20vengo%20desde%20tu%20tarjeta%20digital%20👋"
-           target="_blank" rel="noopener">
+        <a class="btn glass" id="btnWhatsapp" href="#" target="_blank" rel="noopener">
           <span class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M12 2a9.8 9.8 0 0 0-8.35 15.02L3 22l5.08-1.6A9.9 9.9 0 1 0 12 2z"
@@ -59,15 +59,13 @@
           </span>
           <div class="txt">
             <strong>WhatsApp</strong>
-            <span>Escribime al instante</span>
+            <span id="whatsappSubtitle">Escribime al instante</span>
           </div>
           <span class="go" aria-hidden="true">↗</span>
         </a>
 
         <!-- Instagram -->
-        <a class="btn glass"
-           href="https://instagram.com/tu_usuario"
-           target="_blank" rel="noopener">
+        <a class="btn glass" id="btnInstagram" href="#" target="_blank" rel="noopener">
           <span class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"
@@ -85,9 +83,7 @@
         </a>
 
         <!-- Web -->
-        <a class="btn glass"
-           href="https://tuweb.com"
-           target="_blank" rel="noopener">
+        <a class="btn glass" id="btnWeb" href="#" target="_blank" rel="noopener">
           <span class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"
@@ -102,6 +98,22 @@
           </div>
           <span class="go" aria-hidden="true">↗</span>
         </a>
+
+        <!-- Email (opcional, se oculta si no hay) -->
+        <a class="btn glass" id="btnEmail" href="#" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 6h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"
+                    fill="currentColor" opacity=".18"></path>
+              <path d="M4 8l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+          <div class="txt">
+            <strong>Email</strong>
+            <span id="emailSubtitle">Enviar correo</span>
+          </div>
+          <span class="go" aria-hidden="true">↗</span>
+        </a>
       </section>
 
       <footer class="foot">
@@ -113,19 +125,14 @@
     </section>
   </main>
 
-  <!-- AVATAR FLOTANTE → WhatsApp -->
-  <a
-    class="avatar-float"
-    href="https://wa.me/5493813159106?text=Hola%20vengo%20desde%20tu%20tarjeta%20digital%20NFC%20👋"
-    target="_blank"
-    rel="noopener"
-    aria-label="Chatear por WhatsApp"
-  >
+  <!-- AVATAR FLOTANTE → WhatsApp (se setea por JS según perfil) -->
+  <a class="avatar-float" id="floatBot" href="#" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
     <div class="avatar-bubble" aria-hidden="true">
-      <img class="avatar-img" src="img/avatar.jpg" alt="Asistente">
+      <img class="avatar-img" id="botImg" src="img/avatar.jpg" alt="Asistente">
     </div>
     <span class="avatar-tag">WhatsApp</span>
   </a>
 
+  <script src="js/app.js"></script>
 </body>
 </html>
