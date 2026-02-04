@@ -16,6 +16,7 @@
 
 *{ box-sizing: border-box; }
 html,body{ height:100%; }
+
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -110,7 +111,7 @@ body{
   50%{ transform: translateX(-50%) scale(1.06); opacity:1; }
 }
 
-/* LOGO con movimientos */
+/* LOGO (contenedor) con movimientos */
 .logo{
   width: 132px; height: 132px;
   margin: 0 auto 12px;
@@ -120,6 +121,7 @@ body{
   position:relative;
   z-index:1;
 
+  /* Más “glass” */
   background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.07));
   border: 1px solid rgba(255,255,255,0.18);
   backdrop-filter: blur(12px);
@@ -130,22 +132,34 @@ body{
     0 0 0 6px rgba(230,0,18,0.10);
 
   animation: floaty 3.6s ease-in-out infinite;
+  padding: 14px; /* ayuda si el logo es rectangular */
 }
+
 @keyframes floaty{
   0%,100%{ transform: translateY(0) rotate(-0.4deg); }
   50%{ transform: translateY(-6px) rotate(0.6deg); }
 }
 
-.logo-svg{
-  width: 118px; height: 118px;
+/* LOGO como imagen (reemplaza .logo-svg) */
+.logo-img{
+  width: 110px;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 10px 20px rgba(0,0,0,0.35))
+    drop-shadow(0 0 12px rgba(230,0,18,0.45));
+
+  animation: logoFloat 3.6s ease-in-out infinite;
   transform: translateZ(0);
-  filter: drop-shadow(0 12px 18px rgba(0,0,0,0.35));
-  animation: shimmer 5.2s linear infinite;
 }
-@keyframes shimmer{
-  0%{ transform: scale(1) rotate(0deg); }
-  50%{ transform: scale(1.02) rotate(2deg); }
-  100%{ transform: scale(1) rotate(0deg); }
+
+/* Animación suave del logo */
+@keyframes logoFloat{
+  0%,100%{ transform: translateY(0) scale(1); }
+  50%{ transform: translateY(-6px) scale(1.03); }
 }
 
 .name{
@@ -351,6 +365,7 @@ body{
   animation: blink 4.4s infinite;
 }
 .eyes span:nth-child(2){ animation-delay: .2s; }
+
 @keyframes blink{
   0%,92%,100%{ transform: scaleY(1); }
   95%{ transform: scaleY(0.15); }
@@ -392,6 +407,70 @@ body{
 .avatar-float:active .avatar-bubble{
   transform: translateY(-4px) scale(0.98);
 }
+
+/* AVATAR FLOTANTE */
+.avatar-float{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  text-decoration:none;
+  z-index: 50;
+}
+
+.avatar-tag{
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: rgba(255,255,255,0.9);
+  box-shadow: 0 16px 46px rgba(0,0,0,0.35);
+}
+
+.avatar-bubble{
+  width: 62px;
+  height: 62px;
+  border-radius: 999px;
+  position:relative;
+  overflow:hidden; /* recorta la imagen al círculo */
+
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.22), rgba(255,255,255,0.10)),
+              linear-gradient(180deg, rgba(255,27,45,0.52), rgba(230,0,18,0.28));
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 18px 55px rgba(0,0,0,0.45),
+    0 0 0 6px rgba(230,0,18,0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  animation: bob 2.8s ease-in-out infinite;
+}
+
+.avatar-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* llena el círculo */
+  object-position: center;
+  transform: translateZ(0);
+}
+
+@keyframes bob{
+  0%,100%{ transform: translateY(0) rotate(-1deg); }
+  50%{ transform: translateY(-7px) rotate(1deg); }
+}
+
+.avatar-float:hover .avatar-bubble{
+  transform: translateY(-9px) rotate(2deg);
+}
+.avatar-float:active .avatar-bubble{
+  transform: translateY(-4px) scale(0.98);
+}
+
 
 /* Responsive: mejora densidad */
 @media (max-width: 360px){
