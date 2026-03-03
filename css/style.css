@@ -1,14 +1,16 @@
 :root {
   --claro-red: #e60012;
-  --claro-glow: rgba(230, 0, 18, 0.4);
+  --claro-glow: rgba(230, 0, 18, 0.5);
   --bg: #0b0b10;
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.6);
   --glass: rgba(255,255,255,0.06);
   --border: rgba(255,255,255,0.12);
+  --wa-green: #25D366;
 }
 
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -18,7 +20,7 @@ body {
   height: 100vh;
 }
 
-/* EFECTOS DE FONDO */
+/* --- EFECTOS DE FONDO --- */
 .bg { position: fixed; inset: 0; z-index: -1; }
 .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; }
 .orb-1 { width: 400px; height: 400px; top: -10%; left: -10%; background: var(--claro-red); }
@@ -29,89 +31,174 @@ body {
   background-size: 30px 30px; opacity: 0.2;
 }
 
-/* CONTENEDOR PRINCIPAL */
-.wrap {
-  display: flex; align-items: center; justify-content: center;
-  min-height: 100vh; padding: 20px;
+/* --- CONTENEDOR --- */
+.wrap { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  min-height: 100vh; 
+  padding: 20px; 
 }
 
 .card {
-  width: 100%; max-width: 400px;
+  width: 100%; 
+  max-width: 400px;
   background: var(--glass);
   backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   border: 1px solid var(--border);
-  border-radius: 30px;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+  border-radius: 35px; /* Bordes de la tarjeta más redondeados */
+  box-shadow: 0 40px 100px rgba(0,0,0,0.7);
   overflow: hidden;
 }
 
-/* HEADER */
-.top { padding: 30px 20px 15px; text-align: center; }
+/* --- HEADER Y FOTO CUADRADA REDONDEADA --- */
+.top { padding: 25px 20px 15px; text-align: center; }
 
-.claro-mark img { width: 160px; margin-bottom: 20px; filter: drop-shadow(0 0 12px var(--claro-glow)); }
+.claro-mark img { 
+  width: 140px; 
+  margin-bottom: 20px; 
+  filter: drop-shadow(0 0 12px var(--claro-glow)); 
+}
 
 .logo {
-  width: 120px; height: 120px; margin: 0 auto;
-  border-radius: 50%; border: 3px solid var(--claro-red);
-  padding: 5px; background: rgba(255,255,255,0.05);
-  box-shadow: 0 15px 35px rgba(230,0,18,0.2);
+  width: 180px;           /* Tamaño más grande */
+  height: 180px; 
+  margin: 0 auto 15px;
+  border-radius: 35px;    /* Bordes redondeados (pero no círculo) */
+  border: 3px solid var(--claro-red);
+  padding: 4px; 
+  background: rgba(255,255,255,0.05);
+  box-shadow: 
+    0 25px 50px rgba(0,0,0,0.6), 
+    0 0 30px var(--claro-glow);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;       /* Para que la imagen respete los bordes del contenedor */
 }
-.logo-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
 
-.name { font-size: 24px; font-weight: 800; margin: 15px 0 5px; letter-spacing: -0.5px; }
-.role { font-size: 14px; color: var(--muted); margin-bottom: 15px; }
+.logo:hover { transform: scale(1.05) rotate(1deg); }
 
-/* 🛡️ ESTILO DEL DNI (EL CAMBIO CLAVE) */
-.dni-container { margin-top: 10px; margin-bottom: 15px; }
+.logo-img {
+  width: 100%; 
+  height: 100%; 
+  border-radius: 30px;    /* Un poco menos que el contenedor para que encaje bien */
+  object-fit: cover;
+  object-position: center;
+}
+
+.name { 
+  font-size: 26px; 
+  font-weight: 800; 
+  margin: 10px 0 2px; 
+  letter-spacing: -0.5px;
+}
+
+.role { 
+  font-size: 14px; 
+  color: var(--muted); 
+  margin-bottom: 8px; 
+}
+
+/* --- DNI SUAVIZADO --- */
+.dni-container { margin-bottom: 12px; opacity: 0.8; }
 .dni-badge {
-  display: inline-block;
-  background: rgba(230, 0, 18, 0.15);
-  border: 1px solid rgba(230, 0, 18, 0.4);
-  padding: 6px 15px;
-  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 8px;
 }
-.dni-badge small {
-  display: block; font-size: 9px; font-weight: 800;
-  color: #ff4d4d; letter-spacing: 1px; margin-bottom: 2px;
+.dni-badge small { font-size: 8px; color: var(--muted); font-weight: 600; }
+.dni-badge span { font-size: 13px; color: var(--text); }
+
+.mini-chips { display: flex; justify-content: center; gap: 8px; margin-top: 5px; }
+.chip { background: var(--glass); border: 1px solid var(--border); padding: 5px 12px; border-radius: 20px; font-size: 10px; }
+
+.divider { 
+  height: 1px; 
+  background: linear-gradient(90deg, transparent, var(--border), transparent); 
+  margin: 15px 30px; 
 }
-.dni-badge span { font-size: 17px; font-weight: 700; color: white; letter-spacing: 1px; }
 
-.mini-chips { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
-.chip { background: var(--glass); border: 1px solid var(--border); padding: 5px 12px; border-radius: 20px; font-size: 11px; }
+/* --- BOTONES --- */
+.actions { padding: 0 25px 25px; display: grid; gap: 12px; }
 
-.divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 10px 30px; }
-
-/* BOTONES */
-.actions { padding: 15px 25px 25px; display: grid; gap: 12px; }
 .btn {
-  display: flex; align-items: center; padding: 16px;
-  background: rgba(255,255,255,0.08); border: 1px solid var(--border);
-  border-radius: 18px; text-decoration: none; color: white;
-  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex; 
+  align-items: center; 
+  padding: 16px;
+  background: rgba(255,255,255,0.08); 
+  border: 1px solid var(--border);
+  border-radius: 18px; 
+  text-decoration: none; 
+  color: white;
+  transition: 0.3s ease;
 }
-.btn:hover { background: rgba(255,255,255,0.15); transform: translateY(-3px); border-color: var(--claro-red); }
-.icon { font-size: 24px; margin-right: 15px; }
-.txt strong { display: block; font-size: 16px; margin-bottom: 2px; }
-.txt span { font-size: 12px; color: var(--muted); }
-.go { margin-left: auto; opacity: 0.3; font-weight: bold; }
 
-/* FOOTER */
-.foot { padding-bottom: 20px; text-align: center; }
-.note { font-size: 11px; color: var(--muted); }
-
-/* BOTÓN FLOTANTE */
-.avatar-float {
-  position: fixed; right: 20px; bottom: 20px;
-  display: flex; align-items: center; gap: 10px; text-decoration: none;
+.btn:hover { 
+  background: rgba(255,255,255,0.15); 
+  transform: translateY(-3px); 
 }
+
+.icon { font-size: 22px; margin-right: 15px; }
+.txt strong { display: block; font-size: 15px; }
+.txt span { font-size: 11px; color: var(--muted); }
+.go { margin-left: auto; opacity: 0.3; }
+
+/* --- PULSO WHATSAPP --- */
+.pulse-wa { position: relative; border-color: rgba(37, 211, 102, 0.4) !important; }
+.pulse-wa::after {
+  content: ''; position: absolute; inset: 0; border-radius: 18px;
+  border: 2px solid var(--wa-green); animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.05, 1.15); opacity: 0; }
+}
+
+/* --- BOTÓN FLOTANTE --- */
+.avatar-float { 
+  position: fixed; 
+  right: 20px; 
+  bottom: 20px; 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  text-decoration: none; 
+  z-index: 100; 
+}
+
 .avatar-bubble {
-  width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--claro-red);
-  overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  width: 60px; 
+  height: 60px; 
+  border-radius: 18px;  /* También cuadrado redondeado para combinar */
+  border: 2px solid var(--wa-green);
+  overflow: hidden; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: float-bot 3s ease-in-out infinite;
 }
-.avatar-img { width: 100%; height: 100%; object-fit: cover; }
-.avatar-tag { background: white; color: black; font-size: 12px; font-weight: 800; padding: 6px 15px; border-radius: 20px; }
 
-@media (max-width: 400px) {
-  .card { border-radius: 0; border: none; height: 100vh; max-width: none; }
-  .wrap { padding: 0; }
+@keyframes float-bot {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.avatar-img { width: 100%; height: 100%; object-fit: cover; }
+.avatar-tag { background: white; color: black; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 20px; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 400px) { 
+  .card { border-radius: 0; border: none; min-height: 100vh; max-width: none; } 
+  .wrap { padding: 0; } 
+}
+
+@media (max-height: 750px) {
+  .logo { width: 150px; height: 150px; }
+  .top { padding: 15px 20px 10px; }
+  .claro-mark img { width: 120px; margin-bottom: 10px; }
 }
