@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tarjeta Digital + NFC · Claro</title>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- Fondo decorativo -->
   <div class="bg" aria-hidden="true">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
@@ -21,50 +22,42 @@
     <section class="card" role="region" aria-label="Tarjeta digital Claro">
 
       <header class="top">
-
-        <!-- SELLO CLARO (marca fuerte) -->
         <div class="claro-mark" aria-hidden="true">
           <img src="img/logo7.png" alt="Claro">
         </div>
 
-        <!-- Halo -->
         <div class="halo" aria-hidden="true"></div>
 
-        <!-- FOTO DE PERFIL -->
         <div class="logo">
           <img
-            src="img/perfiles/ID001.jpg"
+            src="img/perfiles/default.png"
             alt="Foto de perfil"
             class="logo-img"
             id="profilePhoto"
           />
         </div>
 
-        <h1 class="name" id="profileName">Nombre Apellido</h1>
-        <p class="role" id="profileRole">Tarjeta Digital + NFC · Claro</p>
+        <h1 class="name" id="profileName">Cargando...</h1>
+        <p class="role" id="profileRole">Asesor Comercial</p>
 
-        <div class="mini-chips">
-          <span class="chip">Respuesta rápida</span>
-          <span class="chip">Diseño premium</span>
-          <span class="chip">Contacto 1 toque</span>
+        <div class="dni-container" id="profileDniContainer">
+          <div class="dni-badge">
+            <small>DNI VERIFICADO</small>
+            <span id="profileDni">--.---.---</span>
+          </div>
         </div>
 
+        <div class="mini-chips">
+          <span class="chip">Personal ITEC</span>
+          <span class="chip">Contacto Oficial</span>
+        </div>
       </header>
 
       <div class="divider"></div>
 
       <section class="actions">
-
-        <!-- WhatsApp -->
         <a class="btn glass" id="btnWhatsapp" href="#" target="_blank">
-          <span class="icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2a9.8 9.8 0 0 0-8.35 15.02L3 22l5.08-1.6A9.9 9.9 0 1 0 12 2z"
-                fill="currentColor" opacity=".18"></path>
-              <path d="M9.2 7.7c.2-.5.4-.5.6-.5h.5c.1 0 .3 0 .4.3.1.2.6 1.4.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.3.4-.1.1-.3.3-.1.6.2.3.8 1.2 1.7 1.9.9.7 1.7 1 2 .8.3-.2.6-.7.8-1 .2-.3.3-.3.5-.2.2.1 1.4.7 1.6.8.2.1.3.2.3.3 0 .1 0 .6-.3 1.1-.3.5-1.1 1-1.6 1.1-.5.1-1 .2-2.3-.3-1.4-.6-2.6-1.7-3.5-2.7-.9-1.1-1.5-2.4-1.6-2.8-.1-.4-.1-.8 0-1.1.1-.3.3-.6.4-.7z"
-                fill="currentColor"></path>
-            </svg>
-          </span>
+          <span class="icon">💬</span>
           <div class="txt">
             <strong>WhatsApp</strong>
             <span>Escribime al instante</span>
@@ -72,54 +65,28 @@
           <span class="go">↗</span>
         </a>
 
-        <!-- Instagram -->
-        <a class="btn glass" id="btnInstagram" href="#" target="_blank">
-          <span class="icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"
-                fill="currentColor" opacity=".18"></path>
-              <path d="M12 8.2A3.8 3.8 0 1 0 12 16a3.8 3.8 0 0 0 0-7.8z"
-                fill="currentColor"></path>
-            </svg>
-          </span>
+        <a class="btn glass" id="btnEmail" href="#">
+          <span class="icon">✉️</span>
           <div class="txt">
-            <strong>Instagram</strong>
-            <span>Ver contenido</span>
+            <strong>Email Oficial</strong>
+            <span>Enviar consulta</span>
           </div>
           <span class="go">↗</span>
         </a>
-
-        <!-- Web -->
-        <a class="btn glass" id="btnWeb" href="#" target="_blank">
-          <span class="icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"
-                fill="currentColor" opacity=".18"></path>
-              <path d="M4.5 12h15" fill="none" stroke="currentColor" stroke-width="1.8"/>
-            </svg>
-          </span>
-          <div class="txt">
-            <strong>Mi Web</strong>
-            <span>Servicios</span>
-          </div>
-          <span class="go">↗</span>
-        </a>
-
       </section>
 
       <footer class="foot">
-        <p class="note">Tarjeta Digital + NFC · <strong>Claro</strong></p>
+        <p class="note">NFC Business Card · <strong>Claro Argentina</strong></p>
       </footer>
 
     </section>
   </main>
 
-  <!-- BOT FLOTANTE -->
   <a class="avatar-float" id="floatBot" href="#" target="_blank">
     <div class="avatar-bubble">
       <img class="avatar-img" src="img/avatar.jpg" alt="WhatsApp">
     </div>
-    <span class="avatar-tag">WhatsApp</span>
+    <span class="avatar-tag">Chat Directo</span>
   </a>
 
   <script src="js/app.js"></script>

@@ -1,22 +1,101 @@
 {
   "ID001": {
-    "nombre": "ESTEBAN LOPEZ",
-    "rol": "Vendedor de calle",
-    "whatsapp": "5493813159106",
-    "mensaje": "Hola ESTEBAN! Vengo desde tu Tarjeta Digital + NFC 👋",
-    "email": "juan.perez@empresa.com",
-    "instagram": "https://instagram.com/juanperez",
-    "web": "https://empresa.com",
-    "foto": "img/perfiles/ID001.PNG"
+    "nombre": "RUIZ RAMIRO",
+    "dni": "43.344.258",
+    "rol": "Vendedor ITEC",
+    "whatsapp": "3815695594",
+    "mensaje": "¡Hola Ramiro! Vengo desde tu Tarjeta Digital Claro 👋",
+    "email": "ramiroruiz201650@gmail.com",
+    "foto": "img/perfiles/RamiroRuiz.jpeg"
   },
   "ID002": {
-    "nombre": "JORGE ZERDA",
-    "rol": "Vendedor de calle",
-    "whatsapp": "5493814001122",
-    "mensaje": "Hola JORGE! Te escribo desde tu Tarjeta Digital + NFC 👋",
-    "email": "maria.gomez@empresa.com",
-    "instagram": "",
-    "web": "https://empresa.com/instalaciones",
-    "foto": "img/perfiles/ID002.PNG"
+    "nombre": "ROSANA AGUIRRE",
+    "dni": "24.512.637",
+    "rol": "Vendedor ITEC",
+    "whatsapp": "3814428273",
+    "mensaje": "¡Hola Rosana! Vengo desde tu Tarjeta Digital Claro 👋",
+    "email": "rosanaguirre2@gmail.com",
+    "foto": "img/perfiles/RoxanaAguirre.jpeg"
+  },
+  "ID003": {
+    "nombre": "POMPONIO NICOLAS",
+    "dni": "40.380.126",
+    "rol": "Vendedor ITEC",
+    "whatsapp": "3815723229",
+    "mensaje": "¡Hola Nicolas! Vengo desde tu Tarjeta Digital Claro 👋",
+    "email": "pomponioenzonicolas3@gmail.com",
+    "foto": "img/perfiles/NicolasPomponio.jpeg"
+  },
+  "ID004": {
+    "nombre": "PERXES FACUNDO",
+    "dni": "44.604.281",
+    "rol": "Vendedor ITEC",
+    "whatsapp": "3813560843",
+    "mensaje": "¡Hola Facundo! Vengo desde tu Tarjeta Digital Claro 👋",
+    "email": "facundoperxes@icloud.com",
+    "foto": "img/perfiles/FacundoPrexes.jpeg"
+  },
+  "ID005": {
+    "nombre": "NAVARRO JUAN",
+    "dni": "35.253.303",
+    "rol": "Vendedor ITEC",
+    "whatsapp": "3813505628",
+    "mensaje": "¡Hola Juan! Vengo desde tu Tarjeta Digital Claro 👋",
+    "email": "navarrojuanmanuel90@gmail.com",
+    "foto": "img/perfiles/JuanNavarro.jpeg"
+  },
+  "ID006": {
+    "nombre": "HABIB JORGE",
+    "dni": "35.249.231",
+    "rol": "Vendedor ITEC",
+    "whatsapp": "3812113366",
+    "mensaje": "¡Hola Jorge! Vengo desde tu Tarjeta Digital Claro 👋",
+    "email": "jorgehabin9090@gmail.com",
+    "foto": "img/perfiles/JorgeHabib.jpeg"
+  },
+  "ID008": {
+    "nombre": "CANCIONO BRAIAN",
+    "dni": "39.235.132",
+    "rol": "Vendedor ITEC",
+    "whatsapp": "3816248561",
+    "mensaje": "¡Hola Braian! Vengo desde tu Tarjeta Digital Claro 👋",
+    "email": "braianezequiel36@gmail.com",
+    "foto": "img/perfiles/BrianCancino.jpeg"
+  },
+  "ID009": {
+    "nombre": "ARIAS MARIANA",
+    "dni": "37.568.125",
+    "rol": "Vendedor ITEC",
+    "whatsapp": "3815050577",
+    "mensaje": "¡Hola Mariana! Vengo desde tu Tarjeta Digital Claro 👋",
+    "email": "lamaruarias1993@gmail.com",
+    "foto": "img/perfiles/MarianaArias.jpeg"
+  },
+  "ID010": {
+    "nombre": "PIAMONTE JONATAN",
+    "dni": "35.885.529",
+    "rol": "Vendedor ITEC",
+    "whatsapp": "3816703841",
+    "mensaje": "¡Hola Jonatan! Vengo desde tu Tarjeta Digital Claro 👋",
+    "email": "ezeldavidpiamonte31@gmail.com",
+    "foto": "img/perfiles/DavidPiamonte.jpeg"
+  },
+  "ID011": {
+    "nombre": "NIEVA BRIAN",
+    "dni": "40.923.336",
+    "rol": "Vendedor ITEC",
+    "whatsapp": "3816356812",
+    "mensaje": "¡Hola Brian! Vengo desde tu Tarjeta Digital Claro 👋",
+    "email": "briannieva76@gmail.com",
+    "foto": "img/perfiles/BrianNieva.jpeg"
+  },
+  "ID013": {
+    "nombre": "CARRIZO ANDREA",
+    "dni": "31.025.568",
+    "rol": "Supervisora ITEC",
+    "whatsapp": "3813018184",
+    "mensaje": "¡Hola Andrea! Vengo desde tu Tarjeta Digital Claro 👋",
+    "email": "supervisioncall@interaccesorios.com.ar",
+    "foto": "img/perfiles/default.png"
   }
 }

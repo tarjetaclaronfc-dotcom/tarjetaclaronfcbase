@@ -1,72 +1,81 @@
-// js/app.js
+// js/app.js - Lógica Dinámica para V-Cards Claro NFC
 const $ = (id) => document.getElementById(id);
 
+/**
+ * Obtiene el ID del perfil desde la URL (ej: index.html?id=ID005)
+ * Si no hay ID, por defecto carga el ID001.
+ */
 function getQueryParam(name) {
-  const url = new URL(window.location.href);
-  return url.searchParams.get(name);
+    const url = new URL(window.location.href);
+    return url.searchParams.get(name);
 }
 
-function buildWaLink(phone, msg) {
-  const text = encodeURIComponent(msg || "Hola! Vengo desde tu Tarjeta Digital + NFC 👋");
-  return `https://wa.me/${phone}?text=${text}`;
-}
-
+/**
+ * Función principal que carga los datos del JSON
+ */
 async function loadProfile() {
-  const profileId = getQueryParam("id") || "ID001";
+    // 1. Identificar al vendedor
+    const profileId = getQueryParam("id") || "ID001";
 
-  const res = await fetch("data/data.json", { cache: "no-store" });
-  if (!res.ok) throw new Error(`No se pudo abrir data/data.json (HTTP ${res.status})`);
+    try {
+        // 2. Traer la base de datos (evitamos cache para ver cambios al instante)
+        const res = await fetch("data/data.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("No se pudo cargar la base de datos.");
 
-  const data = await res.json();
-  const p = data[profileId];
+        const data = await res.json();
+        const p = data[profileId];
 
-  if (!p) {
-    $("profileName").textContent = "Perfil no encontrado";
-    $("profileRole").textContent = `No existe el id: ${profileId}`;
-    $("btnWhatsapp").style.display = "none";
-    $("btnInstagram").style.display = "none";
-    $("btnWeb").style.display = "none";
-    $("floatBot").style.display = "none";
-    return;
-  }
+        // 3. Si el ID no existe, mostrar error visual
+        if (!p) {
+            $("profileName").textContent = "Perfil no encontrado";
+            $("profileRole").textContent = `Error: El ID ${profileId} no existe.`;
+            $("profileDniContainer").style.display = "none";
+            return;
+        }
 
-  // Foto
-  if (p.foto) $("profilePhoto").src = p.foto;
+        // --- CARGA DE DATOS DINÁMICOS ---
 
-  // Nombre y rol
-  $("profileName").textContent = p.nombre || "Sin nombre";
-  $("profileRole").textContent = p.rol
-    ? `${p.rol} · Tarjeta Digital + NFC · Claro`
-    : "Tarjeta Digital + NFC · Claro";
+        // Foto de Perfil
+        if (p.foto) $("profilePhoto").src = p.foto;
 
-  // WhatsApp (botón grande + flotante)
-  if (p.whatsapp) {
-    const waLink = buildWaLink(p.whatsapp, p.mensaje);
-    $("btnWhatsapp").href = waLink;
-    $("floatBot").href = waLink;
-  } else {
-    $("btnWhatsapp").style.display = "none";
-    $("floatBot").style.display = "none";
-  }
+        // Nombre y Rol
+        $("profileName").textContent = p.nombre || "Nombre no disponible";
+        $("profileRole").textContent = p.rol || "Asesor Comercial";
 
-  // Instagram
-  if (p.instagram && p.instagram.trim()) $("btnInstagram").href = p.instagram;
-  else $("btnInstagram").style.display = "none";
+        // DNI (Dato Crítico de Verificación)
+        if (p.dni) {
+            $("profileDni").textContent = p.dni;
+            $("profileDniContainer").style.display = "inline-block";
+        } else {
+            $("profileDniContainer").style.display = "none";
+        }
 
-  // Web
-  if (p.web && p.web.trim()) $("btnWeb").href = p.web;
-  else $("btnWeb").style.display = "none";
+        // WhatsApp (Botón Principal y Botón Flotante)
+        if (p.whatsapp) {
+            const mensajeWa = encodeURIComponent(p.mensaje || "¡Hola! Vengo desde tu Tarjeta Digital Claro 👋");
+            const waLink = `https://wa.me/${p.whatsapp}?text=${mensajeWa}`;
+            
+            $("btnWhatsapp").href = waLink;
+            $("floatBot").href = waLink;
+        } else {
+            $("btnWhatsapp").style.display = "none";
+            $("floatBot").style.display = "none";
+        }
 
-  // Bot image opcional (si algún día lo agregás en el JSON)
-  // Para que funcione, agregá id="botImg" en el HTML
-  const botImg = $("botImg");
-  if (botImg && p.botImg) botImg.src = p.botImg;
+        // Email Oficial
+        if (p.email && p.email.trim() !== "") {
+            $("btnEmail").href = `mailto:${p.email}`;
+            $("btnEmail").style.display = "flex";
+        } else {
+            $("btnEmail").style.display = "none";
+        }
+
+    } catch (error) {
+        console.error("Fallo en la carga del perfil:", error);
+        $("profileName").textContent = "Error de Conexión";
+        $("profileRole").textContent = "No se pudo cargar la información.";
+    }
 }
 
-loadProfile().catch((err) => {
-  console.error("Fallo loadProfile:", err);
-  const name = $("profileName");
-  const role = $("profileRole");
-  if (name) name.textContent = "Error cargando datos";
-  if (role) role.textContent = err.message || "Revisá data/data.json y rutas";
-});
+// Ejecutar cuando el DOM esté listo
+document.addEventListener("DOMContentLoaded", loadProfile);
