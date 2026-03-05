@@ -17,8 +17,10 @@ body {
   background-color: var(--bg);
   color: var(--text);
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
+/* EFECTOS DE FONDO */
 .bg { position: fixed; inset: 0; z-index: -1; }
 .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; }
 .orb-1 { width: 400px; height: 400px; top: -10%; left: -10%; background: var(--claro-red); }
@@ -72,15 +74,19 @@ body {
   background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border);
   padding: 4px 12px; border-radius: 8px;
 }
+.dni-badge small { font-size: 8px; color: var(--muted); font-weight: 600; }
+.dni-badge span { font-size: 13px; color: var(--text); }
 
 .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 15px 30px; }
 
+/* BOTONES */
 .actions { padding: 0 25px 20px; display: grid; gap: 10px; }
 
 .btn {
   display: flex; align-items: center; padding: 14px 16px;
   background: rgba(255,255,255,0.08); border: 1px solid var(--border);
   border-radius: 18px; text-decoration: none; color: white; transition: 0.3s ease;
+  position: relative;
 }
 
 .btn:hover { background: rgba(255,255,255,0.15); transform: translateY(-3px); }
@@ -105,18 +111,17 @@ body {
   cursor: pointer; box-shadow: 0 10px 25px var(--claro-glow); transition: 0.3s;
 }
 
+/* MODAL QR */
 .modal {
   display: none; position: fixed; z-index: 2000; inset: 0;
   background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
   align-items: center; justify-content: center;
 }
-
 .modal-content {
   background: white; padding: 30px; border-radius: 30px;
   width: 90%; max-width: 320px; text-align: center; position: relative;
 }
+.btn-close-qr { background: #f0f0f0; border: none; padding: 12px; border-radius: 12px; width: 100%; font-weight: 700; margin-top: 10px; cursor: pointer; }
 
-#qrcode { margin: 20px auto; display: flex; justify-content: center; }
-.btn-close-qr { background: #f0f0f0; border: none; padding: 12px; border-radius: 12px; width: 100%; font-weight: 700; cursor: pointer; }
-
+/* RESPONSIVE */
 @media (max-width: 400px) { .card { border-radius: 0; min-height: 100vh; } .wrap { padding: 0; } }
