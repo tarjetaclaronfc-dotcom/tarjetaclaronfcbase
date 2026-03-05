@@ -7,7 +7,6 @@ function getQueryParam(name) {
 }
 
 async function loadProfile() {
-    // Usamos el DNI de Ramiro como fallback si no hay ID en la URL
     const profileId = getQueryParam("id") || "43344258";
 
     try {
@@ -20,31 +19,24 @@ async function loadProfile() {
             return;
         }
 
-        // Renderizado de datos
         if (p.foto) $("profilePhoto").src = p.foto;
         $("profileName").textContent = p.nombre;
         $("profileRole").textContent = p.rol;
         
-        const dniElement = document.querySelector(".dni-badge span");
-        if (dniElement) dniElement.textContent = p.dni;
+        const dniSpan = document.querySelector(".dni-badge span");
+        if (dniSpan) dniSpan.textContent = p.dni;
 
-        // Configuración de enlaces
         const cleanPhone = p.whatsapp.replace(/\s/g, '');
         const waMsg = encodeURIComponent(p.mensaje || "Hola! Vengo desde tu Tarjeta Digital.");
         
-        // Asignar links a los contenedores de los botones (clase .btn)
-        const btnWa = $("btnWhatsapp");
-        if (btnWa) btnWa.href = `https://wa.me/${cleanPhone}?text=${waMsg}`;
-
-        const btnMail = $("btnEmail");
-        if (btnMail) btnMail.href = `mailto:${p.email}`;
+        if ($("btnWhatsapp")) $("btnWhatsapp").href = `https://wa.me/${cleanPhone}?text=${waMsg}`;
+        if ($("btnEmail")) $("btnEmail").href = `mailto:${p.email}`;
 
     } catch (e) {
         console.error("Error cargando perfil:", e);
     }
 }
 
-// Lógica del QR
 function openQR() {
     const modal = $("qrModal");
     if (modal) {
@@ -52,10 +44,8 @@ function openQR() {
         if (!qrGenerated) {
             new QRCode($("qrcode"), {
                 text: window.location.href,
-                width: 200,
-                height: 200,
-                colorDark: "#e60012",
-                colorLight: "#ffffff"
+                width: 200, height: 200,
+                colorDark: "#e60012", colorLight: "#ffffff"
             });
             qrGenerated = true;
         }
@@ -63,11 +53,9 @@ function openQR() {
 }
 
 function closeQR() {
-    const modal = $("qrModal");
-    if (modal) modal.style.display = "none";
+    if ($("qrModal")) $("qrModal").style.display = "none";
 }
 
-// Guardar Contacto (VCF)
 async function generateVCard() {
     const profileId = getQueryParam("id") || "43344258";
     try {
