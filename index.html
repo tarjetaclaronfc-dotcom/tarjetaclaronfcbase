@@ -26,8 +26,6 @@
           <img src="img/logo7.png" alt="Claro">
         </div>
 
-        <div class="halo" aria-hidden="true"></div>
-
         <div class="logo">
           <img
             src="img/perfiles/default.png"
@@ -46,16 +44,20 @@
             <span id="profileDni">--.---.---</span>
           </div>
         </div>
-
-        <div class="mini-chips">
-          <span class="chip">Personal ITEC</span>
-          <span class="chip">Contacto Oficial</span>
-        </div>
       </header>
 
       <div class="divider"></div>
 
       <section class="actions">
+        <a class="btn glass" href="javascript:void(0)" onclick="openQR()">
+          <span class="icon">🔳</span>
+          <div class="txt">
+            <strong>Mi Código QR</strong>
+            <span>Compartir perfil</span>
+          </div>
+          <span class="go">↗</span>
+        </a>
+
         <a class="btn glass pulse-wa" id="btnWhatsapp" href="#" target="_blank">
           <span class="icon">💬</span>
           <div class="txt">
@@ -73,21 +75,26 @@
           </div>
           <span class="go">↗</span>
         </a>
-
-        <a class="btn glass" href="https://interaccesorios.com.ar/" target="_blank">
-          <span class="icon">🌐</span>
-          <div class="txt">
-            <strong>Interaccesorios</strong>
-            <span>Visitar nuestra web</span>
-          </div>
-          <span class="go">↗</span>
-        </a>
       </section>
 
-    
+      <div style="padding: 0 25px 25px;">
+        <button class="btn-save" onclick="generateVCard()">
+           👤 Guardar Contacto
+        </button>
+      </div>
 
     </section>
   </main>
+
+  <div id="qrModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeQR()">&times;</span>
+      <h3 style="color: #000; margin-bottom: 5px;">Mi QR Oficial</h3>
+      <p style="color: #666; font-size: 12px;">Escaneame para guardar mis datos</p>
+      <div id="qrcode"></div>
+      <button class="btn-close-qr" onclick="closeQR()">Cerrar</button>
+    </div>
+  </div>
 
   <a class="avatar-float" id="floatBot" href="#" target="_blank">
     <div class="avatar-bubble">
@@ -96,6 +103,7 @@
     <span class="avatar-tag">Chat Directo</span>
   </a>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
