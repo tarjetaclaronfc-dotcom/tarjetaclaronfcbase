@@ -53,15 +53,6 @@
     "email": "jorge.habib@interaccesorios.com.ar",
     "foto": "img/perfiles/35249231.png"
   },
-  "39235132": {
-    "nombre": "CANCIONO BRAIAN",
-    "dni": "39.235.132",
-    "rol": "Vendedor ITEC",
-    "whatsapp": "3816248561",
-    "mensaje": "¡Hola Braian! Vengo desde tu Tarjeta Digital Claro 👋",
-    "email": "briannievas@interaccesorios.com.ar",
-    "foto": "img/perfiles/39235132.png"
-  },
   "37568125": {
     "nombre": "ARIAS MARIANA",
     "dni": "37.568.125",
@@ -71,23 +62,23 @@
     "email": "marianaarias@interaccesorios.com.ar",
     "foto": "img/perfiles/37568125.png"
   },
-  "35885529": {
-    "nombre": "PIAMONTE JONATAN",
-    "dni": "35.885.529",
-    "rol": "Vendedor ITEC",
-    "whatsapp": "3816703841",
-    "mensaje": "¡Hola Jonatan! Vengo desde tu Tarjeta Digital Claro 👋",
-    "email": "ezeldavidpiamonte31@gmail.com",
-    "foto": "img/perfiles/35885529.png"
-  },
   "40923336": {
     "nombre": "NIEVA BRIAN",
     "dni": "40.923.336",
     "rol": "Vendedor ITEC",
     "whatsapp": "3816356812",
     "mensaje": "¡Hola Brian! Vengo desde tu Tarjeta Digital Claro 👋",
-    "email": "briannieva76@gmail.com",
+    "email": "briannievas@interaccesorios.com.ar",
     "foto": "img/perfiles/40923336.png"
+  },
+  "44342526": {
+    "nombre": "FUENTES NAHUEL",
+    "dni": "44.342.526",
+    "rol": "Vendedor ITEC",
+    "whatsapp": "3812061093",
+    "mensaje": "¡Hola Nahuel! Vengo desde tu Tarjeta Digital Claro 👋",
+    "email": "nahuelfuentes@interaccesorios.com.ar",
+    "foto": "img/perfiles/44342526.png"
   },
   "31025568": {
     "nombre": "CARRIZO ANDREA",
