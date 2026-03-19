@@ -4,14 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tarjeta Digital + NFC · Claro</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <div class="bg" aria-hidden="true">
+  <div class="bg">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
@@ -19,87 +21,98 @@
   </div>
 
   <main class="wrap">
-    <section class="card" role="region" aria-label="Tarjeta digital Claro">
+    <section class="card">
 
       <header class="top">
-        <div class="claro-mark" aria-hidden="true">
+        <p class="company-line">
+          Interaccesorios SRL – Marcos Paz 1360 - S.M. de Tucuman
+        </p>
+
+        <div class="claro-mark">
           <img src="img/logo7.png" alt="Claro">
         </div>
 
         <div class="logo">
-          <img
-            src="img/perfiles/default.png"
-            alt="Foto de perfil"
-            class="logo-img"
-            id="profilePhoto"
-          />
+          <img src="img/perfiles/default.png" alt="Foto de perfil" class="logo-img" id="profilePhoto">
         </div>
 
-        <h1 class="name" id="profileName">Cargando...</h1>
-        <p class="role" id="profileRole">Asesor Comercial</p>
+        <h1 class="name" id="profileName">Area ITEC Residencial</h1>
+        <p class="role" id="profileRole">Vendedor de terreno</p>
 
-        <div class="dni-container" id="profileDniContainer">
-          <div class="dni-badge">
-            <small>DNI VERIFICADO:</small>
-            <span id="profileDni">--.---.---</span>
-          </div>
+        <div class="dni-badge">
+          <small>DNI VERIFICADO:</small>
+          <span id="profileDni">--.---.---</span>
         </div>
       </header>
 
       <div class="divider"></div>
 
-      <section class="actions">
-        <a class="btn glass" href="javascript:void(0)" onclick="openQR()">
-          <span class="icon">🔳</span>
-          <div class="txt">
-            <strong>Mi Código QR</strong>
-            <span>Compartir perfil</span>
-          </div>
-          <span class="go">↗</span>
-        </a>
+      <!-- SECCION CONTACTO -->
+      <section class="section-block">
+        <h3 class="section-title">Contacto</h3>
 
-        <a class="btn glass pulse-wa" id="btnWhatsapp" href="#" target="_blank">
-          <span class="icon">💬</span>
-          <div class="txt">
-            <strong>WhatsApp</strong>
-            <span>Atención inmediata</span>
-          </div>
-          <span class="go">↗</span>
-        </a>
+        <div class="round-actions three-cols">
+          <a class="round-btn" href="javascript:void(0)" onclick="openQR()">
+            <span class="round-icon">🔳</span>
+            <span class="round-label">Mi QR</span>
+          </a>
 
-        <a class="btn glass" id="btnEmail" href="#">
-          <span class="icon">✉️</span>
-          <div class="txt">
-            <strong>Email Oficial</strong>
-            <span>Enviar consulta</span>
-          </div>
-          <span class="go">↗</span>
-        </a>
+          <a class="round-btn wa-highlight" id="btnWhatsapp" href="#" target="_blank">
+            <span class="round-icon">💬</span>
+            <span class="round-label">WhatsApp</span>
+          </a>
 
-        <a class="btn glass" href="https://interaccesorios.com.ar/" target="_blank">
-          <span class="icon">🌐</span>
-          <div class="txt">
-            <strong>Interaccesorios</strong>
-            <span>Visitar nuestra web</span>
-          </div>
-          <span class="go">↗</span>
-        </a>
+          <a class="round-btn" id="btnEmail" href="#">
+            <span class="round-icon">✉️</span>
+            <span class="round-label">Email</span>
+          </a>
+        </div>
       </section>
 
-      <div style="padding: 0 25px 25px;">
+      <div class="section-separator"></div>
+
+      <!-- SECCION APPS Y ACCESOS -->
+      <section class="section-block">
+        <h3 class="section-title">Apps y accesos</h3>
+
+        <div class="round-actions three-cols">
+          <a class="round-btn" href="https://www.instagram.com/interaccesorios.srl?igsh=MTUwd2dwZmtwajJ5cg" target="_blank">
+            <span class="round-icon">📸</span>
+            <span class="round-label">Instagram</span>
+          </a>
+
+          <a class="round-btn" href="https://interaccesorios.com.ar/" target="_blank">
+            <span class="round-icon">🌐</span>
+            <span class="round-label">Web</span>
+          </a>
+
+          <a class="round-btn" href="https://play.google.com/store/apps/details?id=com.ar.claropay.app" target="_blank">
+            <span class="round-icon">💳</span>
+            <span class="round-label">Claro Pay</span>
+          </a>
+
+          <a class="round-btn" href="https://play.google.com/store/apps/details?id=ar.com.claro.android" target="_blank">
+            <span class="round-icon">📱</span>
+            <span class="round-label">Mi Claro</span>
+          </a>
+        </div>
+      </section>
+
+      <div class="save-wrap">
         <button class="btn-save" onclick="generateVCard()">
-            👤 Guardar Contacto
+          👤 Guardar Contacto
         </button>
       </div>
 
     </section>
   </main>
 
+  <!-- MODAL QR -->
   <div id="qrModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeQR()">&times;</span>
-      <h3 style="color: #000; margin-bottom: 5px;">Mi QR Oficial</h3>
-      <p style="color: #666; font-size: 12px;">Escaneame para guardar mis datos</p>
+      <h3>Mi QR Oficial</h3>
+      <p>Escaneame para guardar mis datos</p>
       <div id="qrcode"></div>
       <button class="btn-close-qr" onclick="closeQR()">Cerrar</button>
     </div>
@@ -107,5 +120,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="js/app.js"></script>
+
 </body>
 </html>
